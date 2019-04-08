@@ -12,26 +12,52 @@ describe('itempsApi', () => {
     });
 
     describe('order', () => {
-        it('should order by field asc', async () => {
-            const items = await api.search('a', {
-                size: 2,
-                orderBy: 'name',
-                order: 'asc',
+        describe('text', () => {
+            it('should order by field asc', async () => {
+                const items = await api.search('a', {
+                    size: 2,
+                    orderBy: 'name',
+                    order: 'asc',
+                });
+
+                expect(items.data[0].name).toEqual('aaa');
+                expect(items.data[1].name).toEqual('abb');
             });
 
-            expect(items.data[0].name).toEqual('aaa');
-            expect(items.data[1].name).toEqual('abb');
+            it('should order by field desc', async () => {
+                const items = await api.search('a', {
+                    size: 2,
+                    orderBy: 'name',
+                    order: 'desc',
+                });
+
+                expect(items.data[0].name).toEqual('aee');
+                expect(items.data[1].name).toEqual('add');
+            });
         });
 
-        it('should order by field desc', async () => {
-            const items = await api.search('a', {
-                size: 2,
-                orderBy: 'name',
-                order: 'desc',
+        describe('number', () => {
+            it('should order by number asc', async () => {
+                const items = await api.search('a', {
+                    size: 2,
+                    orderBy: 'order',
+                    order: 'asc',
+                });
+
+                expect(items.data[0].name).toEqual('aaa');
+                expect(items.data[1].name).toEqual('abb');
             });
 
-            expect(items.data[0].name).toEqual('aee');
-            expect(items.data[1].name).toEqual('add');
+            it('should order by number desc', async () => {
+                const items = await api.search('a', {
+                    size: 2,
+                    orderBy: 'order',
+                    order: 'desc',
+                });
+
+                expect(items.data[0].name).toEqual('aee');
+                expect(items.data[1].name).toEqual('add');
+            });
         });
     });
 
@@ -173,6 +199,7 @@ describe('itempsApi', () => {
 
                 expect(items.data[0].name).toEqual('aaa');
                 expect(items.page.totalPages).toBe(5);
+                expect(items.page.page).toBe(0);
             });
 
             it('should return 2nd page', async () => {
@@ -189,10 +216,13 @@ describe('itempsApi', () => {
                 const items = await api.search('a', {
                     page: 999,
                     size: 1,
+                    orderBy: 'name',
+                    order: 'asc',
                 });
 
                 expect(items.data[0].name).toEqual('aee');
-                expect(items.data.length).toBe(1);
+                expect(items.page.page).toBe(4);
+                expect(items.page.totalPages).toBe(5);
             });
         });
     });

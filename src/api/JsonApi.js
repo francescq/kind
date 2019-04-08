@@ -34,10 +34,7 @@ class JsonApi {
     _applyOrder(answer) {
         const { orderBy, order } = this.pagination;
 
-        if (!orderBy) {
-            return answer;
-        }
-        if (!answer.length) {
+        if (!orderBy || !order) {
             return answer;
         }
 

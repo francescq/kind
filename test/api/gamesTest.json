@@ -4,35 +4,35 @@
             "name": "aaa",
             "short": "saa",
             "url": "/spel/sportspel/8-ball-pool/?language\u003dsv",
-            "tags": "",
+            "order": 1,
             "hasBoosters": false
         },
         {
             "name": "abb",
             "short": "sbb",
             "url": "/spel/sportspel/9-ball-pool/?language\u003dsv",
-            "tags": "",
+            "order": 2,
             "hasBoosters": false
         },
         {
             "name": "acc",
-            "short": "scc",
+            "short": "333",
             "url": "/spel/strategispel/abracadabra/?language\u003dsv",
-            "tags": "",
+            "order": 3,
+            "hasBoosters": false
+        },
+        {
+            "name": "aee",
+            "short": "444",
+            "url": "/spel/pusselspel/african-rainmaker/?language\u003dsv",
+            "order": 5,
             "hasBoosters": false
         },
         {
             "name": "add",
             "short": "sdd",
             "url": "/spel/kortspel/ace-solitaire/?language\u003dsv",
-            "tags": "",
-            "hasBoosters": false
-        },
-        {
-            "name": "aee",
-            "short": "see",
-            "url": "/spel/pusselspel/african-rainmaker/?language\u003dsv",
-            "tags": "",
+            "order": 4,
             "hasBoosters": false
         }
     ]
